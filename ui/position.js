@@ -22,6 +22,10 @@
 
 		// AMD. Register as an anonymous module.
 		define( [ "jquery", "./version" ], factory );
+	} else if (typeof module === "object" && module.exports) {
+		// Node/CommonJS
+		require("./version");
+		module.exports = factory(require("jquery"));
 	} else {
 
 		// Browser globals

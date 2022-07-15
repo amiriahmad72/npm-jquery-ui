@@ -28,6 +28,11 @@
 			"../version",
 			"../keycode"
 		], factory );
+	} else if (typeof module === "object" && module.exports) {
+		// Node/CommonJS
+		require("../version");
+		require("../keycode");
+		module.exports = factory(require("jquery"));
 	} else {
 
 		// Browser globals

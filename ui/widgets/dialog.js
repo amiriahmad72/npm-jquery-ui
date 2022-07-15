@@ -38,6 +38,22 @@
 			"../version",
 			"../widget"
 		], factory );
+	} else if (typeof module === "object" && module.exports) {
+		// Node/CommonJS
+		require("./button");
+		require("./draggable");
+		require("./mouse");
+		require("./resizable");
+		require("../focusable");
+		require("../keycode");
+		require("../position");
+		require("../safe-active-element");
+		require("../safe-blur");
+		require("../tabbable");
+		require("../unique-id");
+		require("../version");
+		require("../widget");
+		module.exports = factory(require("jquery"));
 	} else {
 
 		// Browser globals

@@ -25,6 +25,12 @@
 			"../effect",
 			"./effect-scale"
 		], factory );
+	} else if (typeof module === "object" && module.exports) {
+		// Node/CommonJS
+		require("../version");
+		require("../effect");
+		require("./effect-scale");
+		module.exports = factory(require("jquery"));
 	} else {
 
 		// Browser globals

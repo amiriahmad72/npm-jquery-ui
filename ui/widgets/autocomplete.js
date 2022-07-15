@@ -31,6 +31,15 @@
 			"../version",
 			"../widget"
 		], factory );
+	} else if (typeof module === "object" && module.exports) {
+		// Node/CommonJS
+		require("./menu");
+		require("../keycode");
+		require("../position");
+		require("../safe-active-element");
+		require("../version");
+		require("../widget");
+		module.exports = factory(require("jquery"));
 	} else {
 
 		// Browser globals

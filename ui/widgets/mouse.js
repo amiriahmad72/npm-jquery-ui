@@ -24,6 +24,12 @@
 			"../version",
 			"../widget"
 		], factory );
+	} else if (typeof module === "object" && module.exports) {
+		// Node/CommonJS
+		require("../ie");
+		require("../version");
+		require("../widget");
+		module.exports = factory(require("jquery"));
 	} else {
 
 		// Browser globals

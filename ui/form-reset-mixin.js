@@ -23,6 +23,11 @@
 			"./form",
 			"./version"
 		], factory );
+	} else if (typeof module === "object" && module.exports) {
+		// Node/CommonJS
+		require("./form");
+		require("./version");
+		module.exports = factory(require("jquery"));
 	} else {
 
 		// Browser globals

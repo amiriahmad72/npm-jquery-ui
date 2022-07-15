@@ -35,6 +35,17 @@
 			"../version",
 			"../widget"
 		], factory );
+	} else if (typeof module === "object" && module.exports) {
+		// Node/CommonJS
+		require("./menu");
+		require("../form-reset-mixin");
+		require("../keycode");
+		require("../labels");
+		require("../position");
+		require("../unique-id");
+		require("../version");
+		require("../widget");
+		module.exports = factory(require("jquery"));
 	} else {
 
 		// Browser globals

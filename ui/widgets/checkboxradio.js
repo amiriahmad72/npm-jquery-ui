@@ -29,6 +29,12 @@
 			"../labels",
 			"../widget"
 		], factory );
+	} else if (typeof module === "object" && module.exports) {
+		// Node/CommonJS
+		require("../form-reset-mixin");
+		require("../labels");
+		require("../widget");
+		module.exports = factory(require("jquery"));
 	} else {
 
 		// Browser globals

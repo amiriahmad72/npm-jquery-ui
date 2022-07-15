@@ -26,6 +26,11 @@
 			"../version",
 			"../effect"
 		], factory );
+	} else if (typeof module === "object" && module.exports) {
+		// Node/CommonJS
+		require("../version");
+		require("../effect");
+		module.exports = factory(require("jquery"));
 	} else {
 
 		// Browser globals

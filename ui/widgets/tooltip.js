@@ -30,6 +30,14 @@
 			"../version",
 			"../widget"
 		], factory );
+	} else if (typeof module === "object" && module.exports) {
+		// Node/CommonJS
+		require("../keycode");
+		require("../position");
+		require("../unique-id");
+		require("../version");
+		require("../widget");
+		module.exports = factory(require("jquery"));
 	} else {
 
 		// Browser globals

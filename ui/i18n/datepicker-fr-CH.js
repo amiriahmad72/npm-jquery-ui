@@ -7,6 +7,9 @@
 
 		// AMD. Register as an anonymous module.
 		define( [ "../widgets/datepicker" ], factory );
+	} else if (typeof module === "object" && module.exports) {
+		// Node/CommonJS
+		module.exports = factory(require("../widgets/datepicker"));
 	} else {
 
 		// Browser globals

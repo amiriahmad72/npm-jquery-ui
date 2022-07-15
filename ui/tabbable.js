@@ -19,6 +19,11 @@
 
 		// AMD. Register as an anonymous module.
 		define( [ "jquery", "./version", "./focusable" ], factory );
+	} else if (typeof module === "object" && module.exports) {
+		// Node/CommonJS
+		require("./version");
+		require("./focusable");
+		module.exports = factory(require("jquery"));
 	} else {
 
 		// Browser globals

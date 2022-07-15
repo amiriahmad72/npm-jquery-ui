@@ -30,6 +30,14 @@
 			"../safe-active-element",
 			"../widget"
 		], factory );
+	} else if (typeof module === "object" && module.exports) {
+		// Node/CommonJS
+		require("./button");
+		require("../version");
+		require("../keycode");
+		require("../safe-active-element");
+		require("../widget");
+		module.exports = factory(require("jquery"));
 	} else {
 
 		// Browser globals

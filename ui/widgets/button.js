@@ -33,6 +33,16 @@
 			"../keycode",
 			"../widget"
 		], factory );
+	} else if (typeof module === "object" && module.exports) {
+		// Node/CommonJS
+		// These are only for backcompat
+		// TODO: Remove after 1.12
+		require("./controlgroup");
+		require("./checkboxradio");
+
+		require("../keycode");
+		require("../widget");
+		module.exports = factory(require("jquery"));
 	} else {
 
 		// Browser globals

@@ -27,6 +27,12 @@
 			"./vendor/jquery-color/jquery.color",
 			"./version"
 		], factory );
+	} else if (typeof module === "object" && module.exports) {
+		// Node/CommonJS
+		require("./jquery-var-for-color");
+		require("./vendor/jquery-color/jquery.color");
+		require("./version");
+		module.exports = factory(require("jquery"));
 	} else {
 
 		// Browser globals
